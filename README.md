@@ -1,3 +1,5 @@
+Link to Module 6 mini-project: https://github.com/alexito200/ecommerce-api-assignment
+
 Installation
 
 Create a virtual environment: Bash python -m venv venv
