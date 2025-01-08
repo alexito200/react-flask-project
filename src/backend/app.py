@@ -119,7 +119,7 @@ def get_customer_by_id(id):
     customer = Customer.query.get_or_404(id)
     return customer_schema.jsonify(customer)
 
-@app.route('/customers', methods=['POST'])
+@app.route('/customers/create', methods=['POST'])
 def add_customers():
     try:
         customer_data = customer_schema.load(request.json)

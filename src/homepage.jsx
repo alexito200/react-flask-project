@@ -26,10 +26,10 @@ const HomePage = () => {
                     <h1>Welcome to the E-Commerce App!</h1>
                     <p>Manage products, orders, and customers with ease.</p>
                     <p>
-                        <Button as={Link} to="/products/" variant="primary" className="m-2">
+                        <Button as={Link} to="/products" variant="primary" className="m-2">
                             Start Shopping
                         </Button>
-                        <Button as={Link} to="/customers/" variant="success" onClick={fetchCustomers} className="m-2">
+                        <Button as={Link} to="/customers" variant="success" onClick={fetchCustomers} className="m-2">
                             View Customers
                         </Button>
                     </p>
