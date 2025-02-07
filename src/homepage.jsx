@@ -9,9 +9,12 @@ const HomePage = () => {
     const [customers, setCustomers] = useState([]);
     const [showCustomers, setShowCustomers] = useState(false);
 
+    const API_BASE_URL = "https://react-flask-project-1.onrender.com";
+
+
     const fetchCustomers = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:5000/customers');
+            const response = await axios.get(`${API_BASE_URL}/customers`);
             setCustomers(response.data);
             setShowCustomers(true);
         } catch (error) {
