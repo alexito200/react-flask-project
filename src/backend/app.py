@@ -10,7 +10,7 @@ import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
-                                        f'mysql+mysqlconnector://root:Vitoria96!@127.0.0.1:3306/e_commerce_api'
+                                        f'mysql+mysqlconnector://root:Vitoria96!@localhost:3306/e_commerce_api'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
