@@ -14,7 +14,6 @@ return (
         <Nav.Link as={Link} to="/products" active={location.pathname === "/products"}>Products</Nav.Link>
         <Nav.Link as={Link} to="/orders/create" active={location.pathname === "/orders/create"}>Place Order</Nav.Link>
         <Nav.Link as={Link} to="/customers/create" active={location.pathname === "/customers/create"}>Create Account</Nav.Link>
-        {/* <Nav.Link as={Link} to="/customers/read" active={location.pathname === "/customers/read"}>View Profile</Nav.Link> */}
         <Nav.Link as={Link} to="/customers" active={location.pathname === "/customers"}>View Customers</Nav.Link>
         </Nav>
     </Navbar.Collapse>
