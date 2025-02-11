@@ -59,7 +59,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-   ```
 5. Run Flask server
    ```sh
    flask run
