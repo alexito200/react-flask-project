@@ -15,6 +15,7 @@ import Navigation from './navigation';
 import HomePage from './homepage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+// import ProductList from "./components/mockProducts";
 
 const App = () => {
 return (

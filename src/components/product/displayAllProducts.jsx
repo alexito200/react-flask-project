@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ProductList from "../mockProducts";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -32,6 +33,7 @@ const Products = () => {
                     </li>
                 ))}
             </ul>
+                        <ProductList />
         </div>
     );
 };

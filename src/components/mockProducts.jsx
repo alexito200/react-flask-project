@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { makeServer } from "../../../src/mirage/mirageServer";
-import CreateMockProduct from "./createMockProduct"; // Import the new component
+import { makeServer } from "../mirage/mirageServer";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     let server;
+
     if (import.meta.env.MODE === "development") {
-      server = makeServer();
+      server = makeServer(); // Start MirageJS only in development mode
     }
 
     const fetchProducts = async () => {
       try {
         const response = await fetch("/api/products");
         const data = await response.json();
-        setProducts(data);
+        setProducts(data.products); // Ensure correct data structure
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -25,20 +25,13 @@ function ProductList() {
 
     return () => {
       if (server) {
-        server.shutdown();
+        server.shutdown(); // Shutdown Mirage on unmount
       }
     };
   }, []);
 
-  // ✅ Define handleProductAdded to update product list
-  const handleProductAdded = (newProduct) => {
-    setProducts((prevProducts) => [...prevProducts, newProduct]);
-  };
-
   return (
     <div>
-      <CreateMockProduct onProductAdded={handleProductAdded} /> {/* Pass the function */}
-      <h2>Product List</h2>
       {products.length > 0 ? (
         products.map((product) => (
           <div key={product.id}>

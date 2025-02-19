@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Container, ListGroup, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import CustomerList from "../mockCustomers";
 
 const CustomersPage = () => {
     const [customers, setCustomers] = useState([]);
@@ -30,7 +31,7 @@ const CustomersPage = () => {
             <h1 className="my-4">Customer List</h1>
             {loading && <p>Loading customers...</p>}
             {error && <Alert variant="danger">{error}</Alert>}
-            
+            <CustomerList />
             <ListGroup>
                 {customers.map((customer) => (
                     <ListGroup.Item key={customer.id}>
