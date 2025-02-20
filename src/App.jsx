@@ -14,6 +14,7 @@ import Navigation from "./navigation";
 import HomePage from "./homepage";
 import ShoppingCart from "./components/mock/shoppingCart";
 import OrderConfirmation from './components/mock/mockOrderConfirmation';
+import OrderDetails from "./components/mock/mockOrderDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="/update-product/:id" element={<UpdateProduct />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/orders" element={<OrderPage />} />
+              <Route path="/order/:id" element={<OrderDetails />} />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/checkout" element={<OrderConfirmation />} />
             </Routes>
