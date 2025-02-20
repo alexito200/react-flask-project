@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function UpdateCustomer() {
-  const { id } = useParams(); // Get the customer ID from the URL
-  const navigate = useNavigate(); // Use navigate instead of history
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const [customer, setCustomer] = useState({
     name: "",
@@ -13,15 +13,13 @@ function UpdateCustomer() {
   });
 
   useEffect(() => {
-    // Fetch the customer details by ID when the component mounts
     const fetchCustomer = async () => {
       try {
         const response = await fetch(`/api/customers/${id}`);
         const data = await response.json();
 
-        // Ensure the response contains the customer object and update state
         if (data && data.customer) {
-          setCustomer(data.customer); // Set the customer data to state
+          setCustomer(data.customer);
         } else {
           console.error("Invalid customer data received:", data);
         }
@@ -44,7 +42,6 @@ function UpdateCustomer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send the updated customer data to the server
     try {
       const response = await fetch(`/api/customers/${id}`, {
         method: "PUT",
@@ -55,7 +52,6 @@ function UpdateCustomer() {
       });
 
       if (response.ok) {
-        // Redirect to customer list after successful update
         navigate("/customers");
       } else {
         console.error("Failed to update customer");
@@ -74,7 +70,7 @@ function UpdateCustomer() {
           <input
             type="text"
             name="name"
-            value={customer.name || ""} // Ensure value is never undefined
+            value={customer.name || ""}
             onChange={handleChange}
           />
         </div>
@@ -83,7 +79,7 @@ function UpdateCustomer() {
           <input
             type="email"
             name="email"
-            value={customer.email || ""} // Ensure value is never undefined
+            value={customer.email || ""}
             onChange={handleChange}
           />
         </div>
@@ -92,7 +88,7 @@ function UpdateCustomer() {
           <input
             type="text"
             name="phone"
-            value={customer.phone || ""} // Ensure value is never undefined
+            value={customer.phone || ""}
             onChange={handleChange}
           />
         </div>
@@ -101,7 +97,7 @@ function UpdateCustomer() {
           <input
             type="text"
             name="location"
-            value={customer.location || ""} // Ensure value is never undefined
+            value={customer.location || ""}
             onChange={handleChange}
           />
         </div>

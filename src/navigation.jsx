@@ -1,7 +1,7 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from './components/mock/cartContext';
 
 const Navigation = () => {
@@ -20,7 +20,6 @@ const Navigation = () => {
                     <Nav.Link as={Link} to="/customers" active={location.pathname === "/customers"}>View Customers</Nav.Link>
                 </Nav>
                 
-                {/* Cart Icon with Badge */}
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} to="/shopping-cart" style={{ position: "relative", color: "white" }}>
                         <FaShoppingCart size={24} />

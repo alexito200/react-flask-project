@@ -15,12 +15,10 @@ export const CartProvider = ({ children }) => {
     return savedOrders ? JSON.parse(savedOrders) : [];
   });
 
-  // Sync cart with localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Sync orders with localStorage
   useEffect(() => {
     localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
@@ -44,8 +42,8 @@ export const CartProvider = ({ children }) => {
       totalPrice: cart.reduce((total, product) => total + product.price, 0),
     };
 
-    setOrders((prevOrders) => [...prevOrders, newOrder]); // Update orders state directly
-    setCart([]); // Optionally clear the cart after placing the order
+    setOrders((prevOrders) => [...prevOrders, newOrder]);
+    setCart([]);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom";
 
 function CreateMockProduct() {
   const [product, setProduct] = useState({
@@ -37,13 +37,10 @@ function CreateMockProduct() {
         throw new Error("Failed to create product");
       }
 
-      // Display success message
       setSuccessMessage("Product created successfully!");
 
-      // Reset the form fields
       setProduct({ name: "", description: "", price: "", stock: "" });
 
-      // Redirect after 2 seconds
       setTimeout(() => {
         navigate("/products");
       }, 2000);
@@ -93,14 +90,13 @@ function CreateMockProduct() {
         <button type="submit">Create Product</button>
       </form>
 
-      {/* Button to go back to products */}
       <button onClick={() => navigate("/products")}>Back to Products</button>
     </div>
   );
 }
 
 CreateMockProduct.propTypes = {
-  onProductAdded: PropTypes.func, // Optional for direct state management
+  onProductAdded: PropTypes.func,
 };
 
 export default CreateMockProduct;

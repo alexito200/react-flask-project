@@ -7,7 +7,6 @@ import UpdateCustomer from "./components/mock/updateCustomer";
 import CustomerList from "./components/mock/mockCustomers";
 import CreateMockProduct from "./components/mock/createMockProduct";
 import ProductDetail from "./components/product/deleteProduct";
-// import ListProduct from "./components/product/displayProduct";
 import OrderPage from './components/mock/mockOrders';
 import ProductList from "./components/mock/mockProducts";
 import UpdateProduct from "./components/mock/updateProduct";
@@ -15,12 +14,13 @@ import Navigation from "./navigation";
 import HomePage from "./homepage";
 import ShoppingCart from "./components/mock/shoppingCart";
 import OrderConfirmation from './components/mock/mockOrderConfirmation';
+import OrderDetails from "./components/mock/mockOrderDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 const App = () => {
   return (
-    <CartProvider> {/* ✅ Wrap everything in CartProvider */}
+    <CartProvider>
       <Router>
         <div>
           <Navigation />
@@ -38,6 +38,7 @@ const App = () => {
               <Route path="/update-product/:id" element={<UpdateProduct />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/orders" element={<OrderPage />} />
+              <Route path="/order/:id" element={<OrderDetails />} />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/checkout" element={<OrderConfirmation />} />
             </Routes>
