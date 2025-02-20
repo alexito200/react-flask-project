@@ -64,7 +64,7 @@ export function makeServer() {
       });
 
       // ✅ Add a new customer
-      this.post("/customers", (schema, request) => {
+      this.post("/customers/create", (schema, request) => {
         let newCustomer = JSON.parse(request.requestBody);
         return schema.customers.create(newCustomer);
       });

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { makeServer } from "../../../src/mirage/mirageServer";
-import CreateMockProduct from "./createMockProduct"; // Import the new component
+import CreateMockProduct from "../mock/createMockProduct"; // Import the new component
 
 function ProductList() {
   const [products, setProducts] = useState([]);

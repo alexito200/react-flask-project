@@ -1,47 +1,51 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UpdateCustomer from './components/customer/updateCustomer';
-import CustomerDetail from './components/customer/deleteCustomer';
-import CustomerDetails from './components/customer/readCustomer';
-import CustomerForm from './components/customer/createCustomer';
-import CustomerEdit from './components/customer/customerForm';
-import CustomersPage from './components/customer/customerList';
-import CreateProduct from './components/product/createProduct';
-import UpdateProduct from './components/product/updateProduct';
-import ProductDetail from './components/product/deleteProduct';
-import PlaceOrder from './components/order/placeOrder';
-import ListProduct from './components/product/displayProduct';
-import Products from './components/product/displayAllProducts';
-import Navigation from './navigation';
-import HomePage from './homepage';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-// import ProductList from "./components/mockProducts";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { CartProvider } from "./components/mock/cartContext";
+import CustomerDetail from "./components/customer/deleteCustomer";
+import CustomerDetails from "./components/customer/readCustomer";
+import CreateCustomer from "./components/mock/createMockCustomer";
+import UpdateCustomer from "./components/mock/updateCustomer";
+import CustomerList from "./components/mock/mockCustomers";
+import CreateMockProduct from "./components/mock/createMockProduct";
+import ProductDetail from "./components/product/deleteProduct";
+// import ListProduct from "./components/product/displayProduct";
+import OrderPage from './components/mock/mockOrders';
+import ProductList from "./components/mock/mockProducts";
+import UpdateProduct from "./components/mock/updateProduct";
+import Navigation from "./navigation";
+import HomePage from "./homepage";
+import ShoppingCart from "./components/mock/shoppingCart";
+import OrderConfirmation from './components/mock/mockOrderConfirmation';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 const App = () => {
-return (
-    <Router>
-    <div>
-        <Navigation />
-        <div className="container mt-4">
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/customers/update/:id" element={<UpdateCustomer />} />
-            <Route path="/customers" element={<CustomersPage />} />
-            <Route path="/customers/:id" element={<CustomerDetails />} />
-            <Route path="/customers/create" element={<CustomerForm />} />
-            <Route path="/edit-customer/:id" element={<CustomerEdit />} />
-            <Route path="/customers/:id" element={<CustomerDetail />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/create-product" element={<CreateProduct />} />
-            <Route path="/update-product/:id" element={<UpdateProduct />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/orders" element={<ListProduct />} />
-            <Route path="/orders/create" element={<PlaceOrder />} />
-        </Routes>
+  return (
+    <CartProvider> {/* ✅ Wrap everything in CartProvider */}
+      <Router>
+        <div>
+          <Navigation />
+          <div className="container mt-4">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/customers/update/:id" element={<UpdateCustomer />} />
+              <Route path="/customers" element={<CustomerList />} />
+              <Route path="/customers/:id" element={<CustomerDetails />} />
+              <Route path="/customers/create" element={<CreateCustomer />} />
+              <Route path="/edit-customer/:id" element={<UpdateCustomer />} />
+              <Route path="/customers/:id" element={<CustomerDetail />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/create-product" element={<CreateMockProduct />} />
+              <Route path="/update-product/:id" element={<UpdateProduct />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/orders" element={<OrderPage />} />
+              <Route path="/shopping-cart" element={<ShoppingCart />} />
+              <Route path="/checkout" element={<OrderConfirmation />} />
+            </Routes>
+          </div>
         </div>
-    </div>
-    </Router>
-);
+      </Router>
+    </CartProvider>
+  );
 };
 
 export default App;
