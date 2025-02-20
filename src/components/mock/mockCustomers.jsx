@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // ✅ Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
@@ -9,7 +9,7 @@ function CustomerList() {
       try {
         const response = await fetch("/api/customers");
         const data = await response.json();
-        setCustomers(data.customers); // Access the 'customers' array inside the response
+        setCustomers(data.customers);
       } catch (error) {
         console.error("Error fetching customers:", error);
       }
@@ -20,7 +20,6 @@ function CustomerList() {
 
   return (
     <div>
-      {/* Button to add a new customer */}
       <Link to="/customers/create">
         <button>Add a Customer</button>
       </Link>
@@ -33,7 +32,6 @@ function CustomerList() {
             <p>Phone: {customer.phone}</p>
             <p>Location: {customer.location}</p>
 
-            {/* Button to update customer account */}
             <Link to={`/edit-customer/${customer.id}`}>
               <button>Update Customer Account</button>
             </Link>

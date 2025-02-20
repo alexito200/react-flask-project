@@ -13,7 +13,6 @@ function Orders() {
       ) : (
         <ul style={{ listStyleType: "none", padding: 0 }}>
           {orders.map((order) => {
-            // Ensure order.items exists and is an array
             const totalPrice = Array.isArray(order.items)
               ? order.items.reduce((total, product) => total + (product.price || 0), 0)
               : 0;

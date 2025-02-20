@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "./cartContext"; // Import Cart Context
+import { useCart } from "./cartContext";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
-  const { addToCart } = useCart(); // Access cart function
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,7 +24,6 @@ function ProductList() {
     <div>
       <h1>Products</h1>
 
-      {/* Add Product Button */}
       <Link to="/create-product">
         <button>Add Product</button>
       </Link>
@@ -37,7 +36,6 @@ function ProductList() {
             <p>Price: ${product.price}</p>
             <p>Stock: {product.stock}</p>
 
-            {/* Small Green "Add to Cart" Button */}
             <button
               style={{
                 backgroundColor: "green",
@@ -53,7 +51,6 @@ function ProductList() {
               Add to Cart
             </button>
 
-            {/* Update Product Button */}
             <Link to={`/update-product/${product.id}`}>
               <button>Update Product</button>
             </Link>

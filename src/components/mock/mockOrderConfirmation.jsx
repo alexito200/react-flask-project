@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function OrderConfirmation() {
   const { orders } = useCart();
 
-  // Assuming the last order is the most recent order
   const lastOrder = orders.length > 0 ? orders[orders.length - 1] : null;
 
   return (

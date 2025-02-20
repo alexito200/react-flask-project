@@ -9,8 +9,8 @@ function CreateCustomer() {
     location: "",
   });
 
-  const [message, setMessage] = useState(""); // For success message
-  const navigate = useNavigate(); // useNavigate for redirecting
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCustomer({ ...customer, [e.target.name]: e.target.value });
@@ -26,12 +26,11 @@ function CreateCustomer() {
     });
 
     if (response.ok) {
-      setMessage("Customer successfully created!"); // Set the success message
+      setMessage("Customer successfully created!");
 
-      // After a short delay, redirect to /customers
       setTimeout(() => {
         navigate("/customers");
-      }, 2000); // Delay redirect by 2 seconds
+      }, 2000);
 
     } else {
       console.error("Failed to create customer");
@@ -80,7 +79,6 @@ function CreateCustomer() {
         <button type="submit">Add Customer</button>
       </form>
 
-      {/* Display success or error message */}
       {message && <p>{message}</p>}
     </div>
   );

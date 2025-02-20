@@ -7,7 +7,6 @@ import UpdateCustomer from "./components/mock/updateCustomer";
 import CustomerList from "./components/mock/mockCustomers";
 import CreateMockProduct from "./components/mock/createMockProduct";
 import ProductDetail from "./components/product/deleteProduct";
-// import ListProduct from "./components/product/displayProduct";
 import OrderPage from './components/mock/mockOrders';
 import ProductList from "./components/mock/mockProducts";
 import UpdateProduct from "./components/mock/updateProduct";
@@ -20,7 +19,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <CartProvider> {/* ✅ Wrap everything in CartProvider */}
+    <CartProvider>
       <Router>
         <div>
           <Navigation />

@@ -20,7 +20,6 @@ const Navigation = () => {
                     <Nav.Link as={Link} to="/customers" active={location.pathname === "/customers"}>View Customers</Nav.Link>
                 </Nav>
                 
-                {/* Cart Icon with Badge */}
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} to="/shopping-cart" style={{ position: "relative", color: "white" }}>
                         <FaShoppingCart size={24} />

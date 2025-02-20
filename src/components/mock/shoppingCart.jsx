@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 function ShoppingCart() {
   const { cart, removeFromCart, clearCart, placeOrder } = useCart();
 
-  // Calculate total price
   const totalPrice = cart.reduce((total, product) => total + product.price, 0);
 
   const handleCheckout = () => {
-    placeOrder(); // Place the order and save it to the orders array
-    clearCart();  // Clear the cart
+    placeOrder();
+    clearCart();
   };
 
   return (
@@ -49,7 +48,6 @@ function ShoppingCart() {
       )}
 
       <div style={{ marginTop: "20px" }}>
-        {/* Back to Products Button */}
         <Link to="/products">
           <button
             style={{
@@ -65,7 +63,6 @@ function ShoppingCart() {
           </button>
         </Link>
 
-        {/* Checkout Button */}
         {cart.length > 0 && (
           <Link to="/checkout" onClick={handleCheckout}>
             <button
