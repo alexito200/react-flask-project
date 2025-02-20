@@ -1,7 +1,7 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from './components/mock/cartContext';
 
 const Navigation = () => {
